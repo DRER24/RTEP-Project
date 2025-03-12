@@ -1,13 +1,14 @@
 # RTEP-Project
 Real Time Embedded Programming using C++ AND Raspberry Pi
-#include "tou.h"
-#include <gpiod.h>
-#include <iostream>
-#include <thread>
 
-using namespace std;
+    #include "tou.h"
+    #include <gpiod.h>
+    #include <iostream>
+    #include <thread>
 
-int main() {
+    using namespace std;
+
+    int main() {
     gpiod_chip *chip = gpiod_chip_open_by_name("gpiochip0");
     if (!chip) {
         cerr << "Failed to open GPIO chip!" << endl;
