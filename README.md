@@ -27,8 +27,6 @@ This project implements a real-time sensor system that
  - PCL
  - libgpiod
  - POSIX Threads
-# Social Media Platforms
-https://www.instagram.com/rtep_uofg?igsh=YWxrM3R1cHRkd2Q5
  
 # Authors
 - Abishek Srinivasan Moorthy(3043860S)
