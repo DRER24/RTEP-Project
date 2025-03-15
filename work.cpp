@@ -50,3 +50,10 @@ void led_control_callback(gpiod_line *led_red_line, gpiod_line *led_green_line)
     }
     is_led_active = false;
 }
+void process_radar_data(RadarSensor &radar, PCLVisualization &pclViz, FFTProcessor &fftProc) {
+    while (true) {
+        std::vector<RadarData> radarData = radar.getData();
+        std::vector<FFTResult> fftResults = fftProc.computeFFT(radarData);
+        pclViz.updatePointCloud(fftResults);
+    }
+}
