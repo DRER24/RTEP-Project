@@ -10,3 +10,27 @@ This project implements a real-time sensor system that
 - Uses GPIO for vibration sensor-based event detection & LED control
 
   
+# Installation & Compilation
+ Install dependencies
+ sudo apt update
+ sudo apt install cmake libpcl-dev libgpiod-dev
+
+ # Building the Project
+ mkdir build && cd build
+ cmake ..
+ make 
+
+ # Dependencies
+ - C++ 17 
+ - CMake 
+ - PCL
+ - libgpiod
+ - POSIX Threads
+# Social Media Platforms
+ 
+# Authors
+- Abishek Srinivasan Moorthy(3043860S)
+- Derrick Roy Edgar Rajappan(3023903R)
+- Dheemanth S Naidu(3049973N)
+- Yuxin Du(3008171)
+- Zhuolin Li(3021316)
