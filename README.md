@@ -16,8 +16,9 @@ This project implements a real-time sensor system that
  sudo apt install cmake libpcl-dev libgpiod-dev
 
  # Building the Project
- mkdir build && cd build
- cmake ..
+ mkdir build && 
+ cd build
+ cmake .
  make 
 
  # Dependencies
@@ -27,6 +28,7 @@ This project implements a real-time sensor system that
  - libgpiod
  - POSIX Threads
 # Social Media Platforms
+https://www.instagram.com/rtep_uofg?igsh=YWxrM3R1cHRkd2Q5
  
 # Authors
 - Abishek Srinivasan Moorthy(3043860S)
