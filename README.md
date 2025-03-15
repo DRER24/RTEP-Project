@@ -12,6 +12,7 @@ This project implements a real-time sensor system that
   
 # Installation & Compilation
  Install dependencies
+ 
  sudo apt update
  
  sudo apt install cmake libpcl-dev libgpiod-dev
