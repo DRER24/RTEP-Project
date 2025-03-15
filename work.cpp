@@ -8,7 +8,6 @@ static std::mutex led_mutex;
 static std::atomic<bool> is_led_active{false};
 
 
-
 void sensor_monitor_thread(gpiod_line *sensor_line, const std::function<void(void)> &callback) {
     while (true) 
     {
@@ -25,8 +24,6 @@ void sensor_monitor_thread(gpiod_line *sensor_line, const std::function<void(voi
             std::thread(callback).detach();
     }
 }
-
-
 
 
 
@@ -50,6 +47,8 @@ void led_control_callback(gpiod_line *led_red_line, gpiod_line *led_green_line)
     }
     is_led_active = false;
 }
+
+
 void process_radar_data(RadarSensor &radar, PCLVisualization &pclViz, FFTProcessor &fftProc) {
     while (true) {
         std::vector<RadarData> radarData = radar.getData();
