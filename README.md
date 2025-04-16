@@ -1,12 +1,11 @@
 # RTEP-Project
-Real time radar data processing system using UART-based MMwave Sensor with FFT signal analysis and 3D visualization with Point Cloud Library (PCL) and sensor based detection
+Real time radar data processing system using UART-based MMwave Sensor and 2D visualization with HeatMap based visualization integrating both camera and mmwave sensor for detection
 
 # Introduction
 
 This project implements a real-time sensor system that
 - Reads radar data via UART
-- Processes radar signals using Fast Fourier Transform
-- Visualizes data in 3D using Point Cloud Library (PCL)
+- 
 - Uses GPIO for vibration sensor-based event detection & LED control
 
   
