@@ -1,0 +1,31 @@
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -Wextra -pthread
+LDFLAGS = -pthread
+
+# Source files
+SOURCES = main.cpp radar_detector.cpp heatmap_manager.cpp visualizer.cpp
+
+# Object files
+OBJECTS = $(SOURCES:.cpp=.o)
+
+# Executable name
+EXECUTABLE = radar_heatmap
+
+all: $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CXX) $(LDFLAGS) $(OBJECTS) -o $@
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Header dependencies
+main.o: main.cpp radar_detector.h heatmap_manager.h visualizer.h
+radar_detector.o: radar_detector.cpp radar_detector.h
+heatmap_manager.o: heatmap_manager.cpp heatmap_manager.h radar_detector.h
+visualizer.o: visualizer.cpp visualizer.h heatmap_manager.h radar_detector.h
+
+clean:
+	rm -f $(OBJECTS) $(EXECUTABLE)
+
+.PHONY: all clean
