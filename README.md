@@ -37,6 +37,13 @@ The system is built with a modular, object-oriented architecture following SOLID
 - **SignalHandler**: Manages system signals for graceful shutdown
 - **RadarSystem**: Coordinates all components into a complete system
 
+## Social Media Platforms 
+## Connect with Us
+
+[![Instagram](https://img.icons8.com/ios-filled/50/000000/instagram-new.png)]([https://www.instagram.com/yourprofile](https://www.instagram.com/rtep_uofg?igsh=MXB0bGJtdXJsZmJsOQ==))
+[![YouTube](https://img.icons8.com/ios-filled/50/000000/youtube-play.png)]([https://www.youtube.com/yourchannel](https://youtube.com/@mmwaveradarsmartsecuritysystem?si=PV-vFt_eAyj2cYRo))
+
+
 ## Detailed Installation and Setup
 
 ### Prerequisites
