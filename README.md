@@ -17,8 +17,8 @@ The system has evolved from earlier versions: previous implementations relied so
 
 ## Hardware Requirements
 
-- Raspberry Pi (tested on Raspberry Pi 4)
-- Radar sensor (connected via UART/Serial)
+- Raspberry Pi (tested on Raspberry Pi 5)
+- MMwave Radar sensor HLK-LD-6001 (connected via UART/Serial)
 - PCA9685 PWM controller
 - Servo motors for pan/tilt mechanism
 - I2C connection for servo control
@@ -89,7 +89,7 @@ The system is built with a modular, object-oriented architecture following SOLID
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/radar_tracking.git
+   git clone (https://github.com/DRER24/RTEP-Project/radar_tracking.git)
    cd radar_tracking
    ```
 
