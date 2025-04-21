@@ -1,0 +1,75 @@
+#include "radar_sensor.h"
+#include "pcl_visualization.h"
+#include "tou.h"
+#include <gpiod.h>
+#include <iostream>
+#include <thread>
+#include <vector>
+
+using namespace std;
+
+void updateProcessing(RadarSensor &radar, PCLVisualization &pclViz) {
+    while (true) {
+        std::vector<RadarData> radarData = radar.getData();
+        pclViz.updatePointCloud(radarData);
+    }
+}
+
+void gpioMonitoring(gpiod_line *shock, gpiod_line *red, gpiod_line *green) {
+    std::thread sensor_thread(sensor_monitor_thread, shock, [=]() {
+        led_control_callback(red, green);
+    });
+    sensor_thread.join();
+}
+
+int main() {
+    // 初始化雷达处理
+    RadarSensor radar;
+    PCLVisualization pclViz;
+    radar.initialize();
+    radar.startListening();
+    
+    std::thread processingThread(updateProcessing, std::ref(radar), std::ref(pclViz));
+    
+    // 初始化GPIO
+    gpiod_chip *chip = gpiod_chip_open_by_name("gpiochip0");
+    if (!chip) {
+        cerr << "打开GPIO芯片失败！" << endl;
+        return -1;
+    }
+
+    gpiod_line *shock = gpiod_chip_get_line(chip, 17);
+    gpiod_line *red   = gpiod_chip_get_line(chip, 27);
+    gpiod_line *green = gpiod_chip_get_line(chip, 18);
+
+    if (!shock || !red || !green) {
+        cerr << "获取GPIO线失败！" << endl;
+        gpiod_chip_close(chip);
+        return -1;
+    }
+
+    if (gpiod_line_request_both_edges_events(shock, "vibration_sensor") < 0 ||
+        gpiod_line_request_output(red, "led_red", 0) < 0 ||
+        gpiod_line_request_output(green, "led_green", 1) < 0) {
+        cerr << "请求GPIO失败！" << endl;
+        gpiod_chip_close(chip);
+        return -1;
+    }
+    
+    cout << "系统初始化完成，等待振动传感器事件并进行雷达数据处理..." << endl;
+
+    std::thread gpioThread(gpioMonitoring, shock, red, green);
+    
+    pclViz.run(); // 启动3D可视化
+    
+    processingThread.join();
+    gpioThread.join();
+
+    radar.stopListening();
+    gpiod_line_release(shock);
+    gpiod_line_release(red);
+    gpiod_line_release(green);
+    gpiod_chip_close(chip);
+    
+    return 0;
+}
