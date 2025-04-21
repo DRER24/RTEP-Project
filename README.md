@@ -164,10 +164,9 @@ ctest
 
 ## Performance Notes
 
-The current servo motor implementation prioritizes human presence detection and physical tracking. If you require detailed point cloud visualization similar to the standalone mmWave version, you may need to modify the code to store and process the radar data differently.
+The current project works has been divided into two different parts where in the main branch we fully focused on the improved mmwave radar data integrating with the servo motor such that it will automatically turn to the direction of output obtained from the radar sensor in real time where in the current servo motor implementation prioritizes human presence detection and physical tracking, but in the old_version folder we fully focused on perfecting the mmwave radar sensor to get the detection and visualization of the output achieved from the sensor as seen in the README file in the old_version.
 
 ## License
-
 
 
 ## Authors
