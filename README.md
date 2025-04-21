@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project implements a real-time radar target tracking system using a Raspberry Pi. The system detects targets using a radar sensor and automatically tracks them by controlling servo motors for pan and tilt movements.
+This project implements a real-time radar target tracking system using a Raspberry Pi. The system detects targets using a Millimeter Wave radar sensor and automatically tracks them by controlling servo motors for pan and tilt movements.
 
 ## Features
 
@@ -15,8 +15,8 @@ This project implements a real-time radar target tracking system using a Raspber
 
 ## Hardware Requirements
 
-- Raspberry Pi (tested on Raspberry Pi 4)
-- Radar sensor (connected via UART/Serial)
+- Raspberry Pi (tested on Raspberry Pi 5)
+- MMWave Radar sensor HLK-LD6001 (connected via UART/Serial)
 - PCA9685 PWM controller
 - Servo motors for pan/tilt mechanism
 - I2C connection for servo control
@@ -85,8 +85,11 @@ ctest
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Contributors
+- Abishek Srinivasan Moorthy(3043860S)
+- Derrick Roy Edgar Rajappan(3023903R)
+- Dheemanth S Naidu(3049973N)
+- Yuxin Du(3008171)
+- Zhuolin Li(3021316)
 
-- [Your Name] - Initial implementation
